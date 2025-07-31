@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global News Tracker</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="ticker-wrap">
+                <div class="ticker">
+                    <!-- Trending headlines will be populated here -->
+                </div>
+            </div>
+            <h1>Global News Tracker</h1>
+            <div class="issue-date">
+                <p>{{ current_date }}</p>
+            </div>
+            <div class="search-bar">
+                <form id="search-form">
+                    <input type="text" id="search-input" placeholder="Search for a topic...">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </header>
+        <main>
+            <aside class="country-sidebar">
+                <h3>Countries</h3>
+                <ul id="country-list">
+                    <!-- Country list will be populated here -->
+                </ul>
+            </aside>
+            <div class="news-grid">
+                <article class="featured-news">
+                    <!-- Featured news will be populated here -->
+                </article>
+                <aside class="side-highlights">
+                    <!-- Side highlights will be populated here -->
+                </aside>
+                <aside class="related-articles">
+                    <!-- Related articles will be populated here -->
+                </aside>
+            </div>
+        </main>
+    </div>
+    <script src="/static/scripts.js"></script>
+</body>
+</html>
