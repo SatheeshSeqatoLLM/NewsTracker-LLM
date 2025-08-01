@@ -3,3 +3,4 @@ transformers
 newsapi-python
 requests
 beautifulsoup4
+APScheduler

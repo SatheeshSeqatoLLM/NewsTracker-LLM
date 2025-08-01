@@ -1,34 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('search-input');
-    const countryList = document.getElementById('country-list');
+    
 
-    const countries = {
-        "us": "United States", "gb": "United Kingdom", "ca": "Canada", "au": "Australia", "in": "India",
-        "de": "Germany", "fr": "France", "jp": "Japan", "cn": "China", "ru": "Russia", "br": "Brazil"
-    };
-
-    function populateCountryList() {
-        for (const code in countries) {
-            const item = document.createElement('li');
-            item.textContent = countries[code];
-            item.dataset.code = code;
-            countryList.appendChild(item);
-        }
-    }
-
-    countryList.addEventListener('click', function(event) {
-        if (event.target.tagName === 'LI') {
-            const countryCode = event.target.dataset.code;
-            fetchNews('', countryCode);
-        }
-    });
-
-    function fetchNews(topic = '', country = '') {
+    function fetchNews(topic = '') {
         let url = '/news';
         const params = new URLSearchParams();
         if (topic) params.append('topic', topic);
-        if (country) params.append('country', country);
 
         if (params.toString()) {
             url += `?${params.toString()}`;
@@ -51,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     searchForm.addEventListener('submit', function(event) {
         event.preventDefault();
         const topic = searchInput.value.trim();
-        fetchNews(topic, ''); // Clear country selection on new search
+        fetchNews(topic);
     });
 
     function clearNews() {
@@ -126,6 +104,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Initial setup
-    populateCountryList();
     fetchNews(); // Initial fetch for general news
 });
